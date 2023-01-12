@@ -2,6 +2,7 @@
 from swanfile2 import SwnData
 import xarray as xr
 import matplotlib.pyplot as plt
+import ipdb
 
 if __name__ == '__main__':
     import argparse
@@ -37,6 +38,7 @@ if __name__ == '__main__':
     sdataset = sdata.readswan(in_args.s, in_args.w)
     ndataset = xr.open_dataset(in_args.n)
 
+    ipdb.set_trace()
     for key in sdataset.keys():
         tmp = ndataset[key] - sdataset[key]
         tmp.max(axis = 0).plot()
